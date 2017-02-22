@@ -19,21 +19,21 @@ var
 // paths
 paths = new (function paths() {
   this.src = './src';
-  this.dist = './dist';
-  this.distAssets = this.dist + '/content/';
+  this.dist = './public';
+  this.distAssets = this.dist + '/';
   this.modulesSrc = 'node_modules';
 
-  this.stylesSrc = this.src + '/styles';
-  this.stylesDist = this.dist + '/content/css';
+  this.stylesSrc = this.src + '/scss';
+  this.stylesDist = this.dist + '/stylesheets';
 
-  this.scriptsSrc = this.src + '/scripts';
-  this.scriptsDist = this.dist + '/content/js';
+  this.scriptsSrc = this.src + '/js';
+  this.scriptsDist = this.dist + '/javascripts';
 
   this.imagesSrc = this.src + '/images';
-  this.imagesDist = this.dist + '/content/img';
+  this.imagesDist = this.dist + '/img';
 
   this.assets = '/assets';
-  this.views = this.src + '/views';
+  this.views = './views';
 })();
 
 
@@ -53,7 +53,7 @@ gulp.task('icon-sync', function sync() {
 gulp.task('server',['icon-sync','sass:main','js:main'], function bs() {
 
   browserSync.init(null, {
-    proxy: 'http://localhost:8080',
+    proxy: 'http://localhost:3000',
     reloadDelay: 800
   });
 
